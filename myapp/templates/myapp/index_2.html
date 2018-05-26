@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>HighChar-JS</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+</head>
+<body>
+	<div id="container" class="container"></div>
+	<script src="https://code.highcharts.com/highcharts.src.js"></script>
+	<script>
+	  Highcharts.chart('container', {
+	      chart: {
+	          type: 'column'
+	      },
+	      title: {
+	          text: 'Titanic Survivors by Ticket Class'
+	      },
+	      xAxis: {
+	          categories: {{ categories|safe }}
+	      },
+	      series: [{
+	          name: 'Survived',
+	          data: {{ survived_series }},
+	          color: 'green'
+	      }, {
+	          name: 'Not survived',
+	          data: {{ not_survived_series }},
+	          color: 'red'
+	      }]
+	  });
+	</script>
+	
+</body>
+</html>
